@@ -14,10 +14,10 @@ img { max-width: 100%; height: auto; display: block; }
 .menu a { color: #fff; text-decoration: none; }
 
 main { padding: 16px; max-width: 1200px; margin: 0 auto; }
-.grille { display: flex; flex-wrap: wrap; gap: 16px; }
+
 .carte { width: 100%; background: #fff; border-radius: 10px; overflow: hidden; padding-bottom: 12px; }
-.carte h2, .carte p { margin: 8px 12px; }
-.carte .bouton { margin: 0 12px; }
+.carte h2, .carte p { margin: 8px 6px; }
+.carte .bouton { margin: 0 10px; }
 
 .bouton { background: #1F2A44; color: #fff; border: 0; border-radius: 6px; padding: 6px 12px; cursor: pointer; }
 .bouton:hover { background: #5FD3A0; color: #1F2A44; }
@@ -27,7 +27,213 @@ main { padding: 16px; max-width: 1200px; margin: 0 auto; }
 .formulaire input, .formulaire select { padding: 8px; font-size: 1rem; }
 
 footer { text-align: center; padding: 24px; background: #DCF5EA; }
+/* ---- Base : téléphone (déjà écrit, ne pas toucher) ---- */
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+.pub { background: #5FD3A0; padding: 8px 12px; border-radius: 6px; }
+.blocs { display: flex; flex-wrap: wrap; gap: 12px; }
+.bloc { width: 100%; padding: 32px 16px; background: #fff; border: 2px solid #1F2A44;
+        border-radius: 8px; font-weight: bold; text-align: center; }
+.banniere{
+        height: 200px;
+        background-image: url( "img/salle-800.png");
+        background-size: cover;
+        background-position: center;
+}
+@media (min-width : 1024px) {
+        .banniere {
+                height: 400px;
+                background-image: url("img/salle-800.png" );
+        }
+}
 
+
+
+/* cette fonction permet de paramettrer l'immage de fon nappeler sous la forme de baniere pour quelle s'addapte a des ecran de manier automatique et dynamique*/
+
+.grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+
+@media (min-width : 1024px){
+    .grille {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .grille {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width : 768px) {
+    .burger {
+    display: none;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+  }
+   
+
+
+  
+}
+/* ---------- BASE MOBILE (< 768px) ---------- */
+.formulaire {
+  display: flex;
+  flex-direction: column;   /* champs empilés sur mobile */
+  gap: 12px;
+  padding: 16px;
+}
+
+.formulaire label {
+  display: flex;
+  flex-direction: column;   /* libellé au-dessus du champ */
+  gap: 4px;
+}
+
+.formulaire input,
+.formulaire select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* ---------- ≥ 768px → champs côte à côte ---------- */
+@media (min-width: 768px) {
+  .formulaire {
+    flex-direction: row;    /* les champs passent en ligne */
+    flex-wrap: wrap;        /* autorise le retour à la ligne si besoin */
+    align-items: flex-end;  /* aligne les champs sur leur bas */
+  }
+
+  .formulaire label {
+    flex: 1 1 180px;        /* chaque champ prend au moins 180px, extensible */
+  }
+
+  .formulaire .bouton {
+    flex: 0 0 auto;         /* le bouton garde sa taille naturelle */
+    align-self: flex-end;   /* aligné en bas avec les champs */
+  }
+}
+/* ---- À vous ! Une media query par consigne ---- */
+
+/* 1. Dès 600 px : 2 blocs par ligne  (astuce : calc(50% - 6px)) */
+
+/* 2. Dès 1024 px : 4 blocs par ligne (astuce : calc(25% - 9px)) */
+
+/* 3. Sous 768 px : la .pub est cachée */
+
+/* 4. Mode sombre : fond #1F2A44, texte #F7F5EF, blocs #2C3A5A */
+
+/* 5. Impression : pas de .pub, blocs sans bordure */
+/* ============================================================
+   0. STYLE DE BASE (mobile first) — 1 bloc par ligne
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #ffffff;
+  color: #1F2A44;
+}
+
+header {
+  padding: 16px;
+}
+
+.pub {
+  background: #FFF3CD;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+/* Grille : par défaut 1 colonne (mobile) */
+.blocs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 16px;
+}
+
+.bloc {
+  border: 2px solid #1F2A44;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+/* 
+   1. ≥ 600px → 2 blocs par ligne
+   ============================================================ */
+@media (min-width: 600px) {
+  .blocs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 
+   2. ≥ 1024px → 4 blocs par ligne
+*/
+@media (min-width: 1024px) {
+  .blocs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 
+   3. < 768px → la pub est cachée
+ */
+@media (max-width: 767.98px) {
+  .pub {
+    display: none;
+  }
+}
+
+/* 
+   4. Mode sombre → fond foncé, texte clair
+ */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1F2A44;
+    color: #F7F5EF;
+  }
+  .bloc {
+    border-color: #F7F5EF;
+  }
+  .pub {
+    background: #3A4A6B;
+  }
+}
+
+/* 
+   5. Impression → pas de pub, blocs sans bordures
+ */
+@media print {
+  .pub {
+    display: none;
+  }
+  .bloc {
+    border: none;
+  }
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+}
 /* ===== À vous : les media queries du TP ===== */
 
 /* Étape 1 · Dès 768 px : le burger disparaît, le menu s'affiche en ligne */

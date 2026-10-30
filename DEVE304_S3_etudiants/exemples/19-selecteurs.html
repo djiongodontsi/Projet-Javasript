@@ -10,20 +10,51 @@
                padding: 4px 10px; border-radius: 6px; font: 14px monospace; margin: 0; }
     /* ----- le code de la diapo ----- */
     .carte { padding: 12px; margin-bottom: 8px; background: #fff; border-radius: 8px; }
-    .carte:nth-child(odd) { background: #DCF5EA; }
+    .carte:nth-child(even) { background: #DCF5EA; }     /* ----- odd = impair
+Cible les éléments en 1re, 3e, 5e, 7e... position.       //    even = pair
+Cible les éléments en 2e, 4e, 6e, 8e... position. ----- */
     .carte:first-child { border-left: 6px solid #2E8B65; }
     a[href^="https"]::after { content: " (externe)"; }
     input:focus { outline: 3px solid #5FD3A0; }
     .bouton:not(.actif) { opacity: 0.5; }
+    @media (hover: none ) and ( pointer:coarse){
+      .bouton {
+        padding: 14px 24px;
+        font-size: 1.1rem;
+      }
+    }/* : la règle cible les appareils tactiles sans souris — typiquement smartphones et tablettes. C'est le cas classique d'un écran tactile pur.  sur mobile, on tient l'écran à distance et le texte un peu plus grand améliore la lisibilité et le confort de lecture.*/
+    @media (prefers-color-scheme: dark){
+      body {
+        background: #1F2A44; color : #F7F5EF;
+      }
+
+    }
+    @media (prefers-reduced-motion: reduce {
+      *{
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+    @media (orientation: landscape) and ( max-height : 500px) {
+           
+      header { position : static ; height: 60px;
+
+
+      .hero {
+        height: 60vh;
+      }}
+    }
   </style>
 </head>
-<body>
+<body> <button>
   <div class="liste">
     <div class="carte">Turing</div>
     <div class="carte">Lovelace</div>
     <div class="carte">Hopper</div>
     <div class="carte">Babbage</div>
+  </button>
   </div>
+  <h1> <p>sjl sidwoox c wjid ciwidk cc iwncwkbdc irwesd</p></h1>
   <p><a href="https://developer.mozilla.org">MDN (site externe)</a> · <a href="index.html">Accueil (même site)</a></p>
   <p><label>Votre nom <input type="text"></label></p>
   <p><button class="bouton actif">Réserver</button> <button class="bouton">Annuler</button></p>

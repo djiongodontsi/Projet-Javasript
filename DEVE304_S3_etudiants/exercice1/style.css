@@ -30,3 +30,100 @@ body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7
 /* 4. Mode sombre : fond #1F2A44, texte #F7F5EF, blocs #2C3A5A */
 
 /* 5. Impression : pas de .pub, blocs sans bordure */
+/* ============================================================
+   0. STYLE DE BASE (mobile first) — 1 bloc par ligne
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #ffffff;
+  color: #1F2A44;
+}
+
+header {
+  padding: 16px;
+}
+
+.pub {
+  background: #FFF3CD;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+/* Grille : par défaut 1 colonne (mobile) */
+.blocs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 16px;
+}
+
+.bloc {
+  border: 2px solid #1F2A44;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+/* 
+   1. ≥ 600px → 2 blocs par ligne
+   ============================================================ */
+@media (min-width: 600px) {
+  .blocs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 
+   2. ≥ 1024px → 4 blocs par ligne
+*/
+@media (min-width: 1024px) {
+  .blocs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 
+   3. < 768px → la pub est cachée
+ */
+@media (max-width: 767.98px) {
+  .pub {
+    display: none;
+  }
+}
+
+/* 
+   4. Mode sombre → fond foncé, texte clair
+ */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1F2A44;
+    color: #F7F5EF;
+  }
+  .bloc {
+    border-color: #F7F5EF;
+  }
+  .pub {
+    background: #3A4A6B;
+  }
+}
+
+/* 
+   5. Impression → pas de pub, blocs sans bordures
+ */
+@media print {
+  .pub {
+    display: none;
+  }
+  .bloc {
+    border: none;
+  }
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+}
