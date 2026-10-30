@@ -5,6 +5,19 @@ body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7
 .blocs { display: flex; flex-wrap: wrap; gap: 12px; }
 .bloc { width: 100%; padding: 32px 16px; background: #fff; border: 2px solid #1F2A44;
         border-radius: 8px; font-weight: bold; text-align: center; }
+.banniere{
+        height: 200px;
+        background-image: url( "img/salle-800.png");
+        background-size: cover;
+        background-position: center;
+}
+@media (min-width : 1024px) {
+        .banniere {
+                height: 400px;
+                background-image: url("img/salle-800.png" );
+        }
+}
+/* cette fonction permet de paramettrer l'immage de fon nappeler sous la forme de baniere pour quelle s'addapte a des ecran de manier automatique et dynamique*/
 
 /* ---- À vous ! Une media query par consigne ---- */
 
