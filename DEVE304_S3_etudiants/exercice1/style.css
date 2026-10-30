@@ -1,0 +1,19 @@
+/* ---- Base : téléphone (déjà écrit, ne pas toucher) ---- */
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+.pub { background: #5FD3A0; padding: 8px 12px; border-radius: 6px; }
+.blocs { display: flex; flex-wrap: wrap; gap: 12px; }
+.bloc { width: 100%; padding: 32px 16px; background: #fff; border: 2px solid #1F2A44;
+        border-radius: 8px; font-weight: bold; text-align: center; }
+
+/* ---- À vous ! Une media query par consigne ---- */
+
+/* 1. Dès 600 px : 2 blocs par ligne  (astuce : calc(50% - 6px)) */
+
+/* 2. Dès 1024 px : 4 blocs par ligne (astuce : calc(25% - 9px)) */
+
+/* 3. Sous 768 px : la .pub est cachée */
+
+/* 4. Mode sombre : fond #1F2A44, texte #F7F5EF, blocs #2C3A5A */
+
+/* 5. Impression : pas de .pub, blocs sans bordure */

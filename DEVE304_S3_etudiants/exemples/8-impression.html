@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Une version pour l'impression</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+    #largeur { position: fixed; right: 8px; bottom: 8px; background: #1F2A44; color: #fff;
+               padding: 4px 10px; border-radius: 6px; font: 14px monospace; margin: 0; }
+    /* ----- le code de la diapo ----- */
+    nav { background: #1F2A44; color: #fff; padding: 12px; border-radius: 8px; }
+    .bouton { padding: 8px 16px; }
+    @media print {
+      nav, .bouton, video { display: none; }
+      body { background: white; color: black; }
+      a::after {
+        content: " (" attr(href) ")";
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>Salles · Réserver · Contact</nav>
+  <h1>Ma réservation</h1>
+  <p>Salle Turing, jeudi de 14 h à 16 h.</p>
+  <p>Plan d'accès : <a href="https://www.epsi.fr">site de l'EPSI</a></p>
+  <button class="bouton">Annuler</button>
+  <p id="largeur"></p>
+  <script>
+    // Affiche la largeur de la fenêtre en bas à droite, pour vos essais
+    function montrer() { document.querySelector("#largeur").textContent = window.innerWidth + " px"; }
+    window.addEventListener("resize", montrer); montrer();
+  </script>
+</body>
+</html>

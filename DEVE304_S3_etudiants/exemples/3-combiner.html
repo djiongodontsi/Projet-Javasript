@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Combiner des conditions</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+    #largeur { position: fixed; right: 8px; bottom: 8px; background: #1F2A44; color: #fff;
+               padding: 4px 10px; border-radius: 6px; font: 14px monospace; margin: 0; }
+    /* ----- le code de la diapo ----- */
+    /* tablette seulement : 768 à 1023 px */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      body { background: #DCF5EA; }
+    }
+    /* petit écran OU portrait */
+    @media (max-width: 400px), (orientation: portrait) {
+      h1 { color: #C0392B; }
+    }
+    /* même idée, écriture moderne */
+    @media (768px <= width < 1024px) {
+      h1 { text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+  <h1>EPSI Salles</h1>
+  <p>Changez la largeur et l'orientation pour voir les règles s'activer.</p>
+  <p id="largeur"></p>
+  <script>
+    // Affiche la largeur de la fenêtre en bas à droite, pour vos essais
+    function montrer() { document.querySelector("#largeur").textContent = window.innerWidth + " px"; }
+    window.addEventListener("resize", montrer); montrer();
+  </script>
+</body>
+</html>

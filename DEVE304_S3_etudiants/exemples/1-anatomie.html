@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anatomie d'une media query</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+    #largeur { position: fixed; right: 8px; bottom: 8px; background: #1F2A44; color: #fff;
+               padding: 4px 10px; border-radius: 6px; font: 14px monospace; margin: 0; }
+    /* ----- le code de la diapo ----- */
+    .liste { display: flex; flex-wrap: wrap; }
+    .carte { box-sizing: border-box; width: 100%; padding: 24px; border: 3px solid #F7F5EF;
+             background: #DCF5EA; font-weight: bold; }
+    @media screen and (min-width: 768px) {
+      .carte {
+        width: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Les salles</h1>
+  <div class="liste">
+    <div class="carte">Turing</div>
+    <div class="carte">Lovelace</div>
+    <div class="carte">Hopper</div>
+    <div class="carte">Babbage</div>
+  </div>
+  <p id="largeur"></p>
+  <script>
+    // Affiche la largeur de la fenêtre en bas à droite, pour vos essais
+    function montrer() { document.querySelector("#largeur").textContent = window.innerWidth + " px"; }
+    window.addEventListener("resize", montrer); montrer();
+  </script>
+</body>
+</html>

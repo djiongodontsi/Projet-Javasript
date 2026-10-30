@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap : menu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">EPSI Salles</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse"
+              data-bs-target="#menu">☰</button>
+      <div class="collapse navbar-collapse" id="menu">
+        <a class="nav-link" href="#">Salles</a>
+        <a class="nav-link" href="#">Réserver</a>
+        <a class="nav-link" href="#">Contact</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container py-3">
+    <p class="d-none d-md-block alert alert-success">Visible dès 768 px</p>
+    <p>Ce paragraphe est toujours visible.</p>
+  </div>
+  <!-- Le JavaScript de Bootstrap : il fait marcher le bouton ☰ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

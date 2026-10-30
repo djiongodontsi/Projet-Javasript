@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TechDay 2026 · EPSI Paris</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="entete">
+    <a class="logo" href="#">TechDay<span>2026</span></a>
+    <button class="burger" aria-label="Ouvrir le menu">☰</button>
+    <nav class="menu">
+      <a href="#programme">Programme</a>
+      <a href="#teaser">Teaser</a>
+      <a href="#inscription">Inscription</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="img/hero.jpg" alt="Le TechDay à l'EPSI Paris">
+    <div class="hero-texte">
+      <h1>TechDay 2026</h1>
+      <p>Une journée de conférences sur l'IA, la cybersécurité et le web. Jeudi 26 novembre, EPSI Paris.</p>
+      <a class="bouton" href="#inscription">Je m'inscris</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="programme">
+      <h2>Le programme</h2>
+      <div class="cartes">
+        <article class="carte">
+          <img src="img/ia.jpg" alt="Conférence IA">
+          <h3>L'IA au quotidien</h3>
+          <p class="horaire">9 h 30 · Amphi A</p>
+          <p>Comment les assistants IA changent le travail des développeurs.</p>
+        </article>
+        <article class="carte">
+          <img src="img/cyber.jpg" alt="Conférence cybersécurité">
+          <h3>Pirater pour protéger</h3>
+          <p class="horaire">11 h · Amphi A</p>
+          <p>Une démonstration d'attaque et de défense en direct.</p>
+        </article>
+        <article class="carte">
+          <img src="img/web.jpg" alt="Conférence web">
+          <h3>Le web de demain</h3>
+          <p class="horaire">14 h · Salle Turing</p>
+          <p>Responsive, accessibilité et performance : les bonnes pratiques.</p>
+        </article>
+        <article class="carte">
+          <img src="img/ia.jpg" alt="Atelier IA">
+          <h3>Atelier : ton premier chatbot</h3>
+          <p class="horaire">15 h 30 · Salle Lovelace</p>
+          <p>Deux heures pour construire un petit assistant.</p>
+        </article>
+        <article class="carte">
+          <img src="img/cyber.jpg" alt="Atelier CTF">
+          <h3>Atelier : capture du drapeau</h3>
+          <p class="horaire">15 h 30 · Salle Hopper</p>
+          <p>Un jeu en équipe pour trouver des failles.</p>
+        </article>
+        <article class="carte">
+          <img src="img/web.jpg" alt="Table ronde">
+          <h3>Table ronde : les métiers</h3>
+          <p class="horaire">17 h · Amphi A</p>
+          <p>Des anciens étudiants racontent leur parcours.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="teaser">
+      <h2>Le teaser</h2>
+      <div class="video">
+        <video src="video/teaser.mp4" controls muted playsinline></video>
+      </div>
+    </section>
+
+    <section id="inscription">
+      <h2>Inscription</h2>
+      <form class="formulaire">
+        <label>Prénom <input type="text" required></label>
+        <label>Nom <input type="text" required></label>
+        <label>E-mail <input type="email" required></label>
+        <label>Atelier
+          <select>
+            <option>Ton premier chatbot</option>
+            <option>Capture du drapeau</option>
+            <option>Aucun</option>
+          </select>
+        </label>
+        <button class="bouton" type="submit">Valider mon inscription</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>EPSI Paris · 20 boulevard Poissonnière · <a href="mailto:techday@epsi.fr">techday@epsi.fr</a></p>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>

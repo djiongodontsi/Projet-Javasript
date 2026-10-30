@@ -1,0 +1,10 @@
+DEVE304 · Séance 3 (vendredi 30/10, 9h–13h)
+
+exemples/            un fichier par notion : ouvrez-le, faites l'essai demandé sur la diapo
+exercice1/           media queries : complétez style.css
+tp-depart/           TP EPSI Salles : complétez style.css puis remplissez tests.md
+exercice2/           Bootstrap : complétez index.html (aucune ligne de CSS)
+mini-projet-depart/  mini-projet évalué TechDay : complétez css/style.css et tests.md
+
+Pour tester : F12, puis le bouton « mode appareil » (icône téléphone/tablette).
+Les exemples 11 et 12 (LESS) : voir le LISEZMOI.txt de leur dossier.

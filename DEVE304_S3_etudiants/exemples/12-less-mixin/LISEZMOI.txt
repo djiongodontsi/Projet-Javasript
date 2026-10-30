@@ -1,0 +1,5 @@
+1. Ouvrez un terminal dans ce dossier.
+2. Tapez :  npx lessc style.less style.css
+   (la 1re fois, npx demande d'installer less : répondez y)
+3. Ouvrez style.css pour voir le CSS généré, puis index.html dans le navigateur.
+4. À chaque modification de style.less : recompilez, puis rechargez la page.

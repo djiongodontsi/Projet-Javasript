@@ -1,0 +1,19 @@
+// Mixin avec une valeur par défaut
+.arrondi(@r: 8px) {
+  border-radius: @r;
+}
+// Point de rupture rangé dans une variable
+@tablette: ~"(min-width: 768px)";
+
+.bouton {
+  padding: 6px 12px;
+  .arrondi(20px);
+  @media @{tablette} {
+    padding: 12px 24px;
+  }
+}
+
+.carte {
+  background: #DCF5EA;
+  padding: 16px;
+}

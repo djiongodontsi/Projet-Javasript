@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EPSI Salles</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="entete">
+    <strong class="logo">EPSI Salles</strong>
+    <button class="burger" aria-label="Ouvrir le menu">☰</button>
+    <nav class="menu">
+      <a href="#salles">Salles</a>
+      <a href="#reserver">Réserver</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="salles">
+      <h1>Nos salles</h1>
+      <div class="grille">
+        <article class="carte">
+          <img src="img/turing.jpg" alt="Salle Turing">
+          <h2>Turing</h2><p>12 places · vidéoprojecteur</p>
+          <button class="bouton">Réserver</button>
+        </article>
+        <article class="carte">
+          <img src="img/lovelace.jpg" alt="Salle Lovelace">
+          <h2>Lovelace</h2><p>20 places · tableau blanc</p>
+          <button class="bouton">Réserver</button>
+        </article>
+        <article class="carte">
+          <img src="img/hopper.jpg" alt="Salle Hopper">
+          <h2>Hopper</h2><p>8 places · écran tactile</p>
+          <button class="bouton">Réserver</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="reserver">
+      <h2>Réserver</h2>
+      <form class="formulaire">
+        <label>Nom <input type="text" placeholder="Votre nom"></label>
+        <label>Salle
+          <select><option>Turing</option><option>Lovelace</option><option>Hopper</option></select>
+        </label>
+        <label>Date <input type="date"></label>
+        <button class="bouton" type="submit">Valider</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="contact">EPSI Paris · salles@epsi.fr</footer>
+  <script src="app.js"></script>
+</body>
+</html>

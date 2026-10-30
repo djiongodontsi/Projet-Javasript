@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les sélecteurs CSS3</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+    #largeur { position: fixed; right: 8px; bottom: 8px; background: #1F2A44; color: #fff;
+               padding: 4px 10px; border-radius: 6px; font: 14px monospace; margin: 0; }
+    /* ----- le code de la diapo ----- */
+    .carte { padding: 12px; margin-bottom: 8px; background: #fff; border-radius: 8px; }
+    .carte:nth-child(odd) { background: #DCF5EA; }
+    .carte:first-child { border-left: 6px solid #2E8B65; }
+    a[href^="https"]::after { content: " (externe)"; }
+    input:focus { outline: 3px solid #5FD3A0; }
+    .bouton:not(.actif) { opacity: 0.5; }
+  </style>
+</head>
+<body>
+  <div class="liste">
+    <div class="carte">Turing</div>
+    <div class="carte">Lovelace</div>
+    <div class="carte">Hopper</div>
+    <div class="carte">Babbage</div>
+  </div>
+  <p><a href="https://developer.mozilla.org">MDN (site externe)</a> · <a href="index.html">Accueil (même site)</a></p>
+  <p><label>Votre nom <input type="text"></label></p>
+  <p><button class="bouton actif">Réserver</button> <button class="bouton">Annuler</button></p>
+  <p id="largeur"></p>
+  <script>
+    // Affiche la largeur de la fenêtre en bas à droite, pour vos essais
+    function montrer() { document.querySelector("#largeur").textContent = window.innerWidth + " px"; }
+    window.addEventListener("resize", montrer); montrer();
+  </script>
+</body>
+</html>

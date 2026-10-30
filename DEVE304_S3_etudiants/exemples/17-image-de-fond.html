@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Une image de fond responsive</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+    #largeur { position: fixed; right: 8px; bottom: 8px; background: #1F2A44; color: #fff;
+               padding: 4px 10px; border-radius: 6px; font: 14px monospace; margin: 0; }
+    /* ----- le code de la diapo ----- */
+    .banniere {
+      height: 220px;
+      background-image: url("img/salle-800.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    @media (min-width: 1024px) {
+      .banniere {
+        height: 400px;
+        background-image: url("img/salle-1600.jpg");
+      }
+    }
+    .banniere h1 { margin: 0; padding: 16px; color: #fff; background: rgba(31, 42, 68, .6); }
+  </style>
+</head>
+<body>
+  <div class="banniere">
+    <h1>Salle Turing · 12 places</h1>
+  </div>
+  <p>Ici, la photo n'est pas une balise &lt;img&gt; : c'est un décor posé en CSS derrière le titre.</p>
+  <p id="largeur"></p>
+  <script>
+    // Affiche la largeur de la fenêtre en bas à droite, pour vos essais
+    function montrer() { document.querySelector("#largeur").textContent = window.innerWidth + " px"; }
+    window.addEventListener("resize", montrer); montrer();
+  </script>
+</body>
+</html>

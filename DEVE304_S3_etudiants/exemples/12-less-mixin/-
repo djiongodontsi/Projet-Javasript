@@ -1,0 +1,13 @@
+.bouton {
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+@media (min-width: 768px) {
+  .bouton {
+    padding: 12px 24px;
+  }
+}
+.carte {
+  background: #DCF5EA;
+  padding: 16px;
+}

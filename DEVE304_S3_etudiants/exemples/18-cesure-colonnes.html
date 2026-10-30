@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Couper les mots, écrire en colonnes</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+    #largeur { position: fixed; right: 8px; bottom: 8px; background: #1F2A44; color: #fff;
+               padding: 4px 10px; border-radius: 6px; font: 14px monospace; margin: 0; }
+    /* ----- le code de la diapo ----- */
+    .article {
+      hyphens: auto;
+      overflow-wrap: break-word;
+    }
+    @media (min-width: 768px) {
+      .article { column-count: 2; column-gap: 32px; }
+    }
+    @media (min-width: 1024px) {
+      .article { column-count: 3; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Règlement des salles</h1>
+  <div class="article">
+    <p>Les réservations sont nominatives et intransmissibles. Toute réservation non confirmée la veille est automatiquement annulée. Les salles sont accessibles du lundi au vendredi, de 8 h à 20 h.</p>
+    <p>Le matériel (vidéoprojecteur, câbles, télécommande) doit être rendu à l'accueil. Une utilisation anticonstitutionnellement prolongée entraîne une suspension du compte.</p>
+    <p>Pour toute question, consultez https://www.epsisallesreservation.fr/reglementinterieurcomplet2026 ou écrivez à l'accueil.</p>
+    <p>Merci de laisser la salle propre : chaises rangées, tableau effacé, fenêtres fermées et lumières éteintes en partant.</p>
+  </div>
+  <p id="largeur"></p>
+  <script>
+    // Affiche la largeur de la fenêtre en bas à droite, pour vos essais
+    function montrer() { document.querySelector("#largeur").textContent = window.innerWidth + " px"; }
+    window.addEventListener("resize", montrer); montrer();
+  </script>
+</body>
+</html>

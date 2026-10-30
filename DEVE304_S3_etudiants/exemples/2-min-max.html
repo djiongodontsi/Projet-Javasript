@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>min-width ou max-width ?</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+    #largeur { position: fixed; right: 8px; bottom: 8px; background: #1F2A44; color: #fff;
+               padding: 4px 10px; border-radius: 6px; font: 14px monospace; margin: 0; }
+    /* ----- le code de la diapo ----- */
+    nav { background: #1F2A44; padding: 12px 16px; border-radius: 8px; }
+    nav a { color: #fff; text-decoration: none; }
+    .burger { font-size: 28px; color: #5FD3A0; background: none; border: 0; }
+    /* Mobile first : la base = le téléphone */
+    .burger { display: block; }
+    .menu   { display: none; }
+
+    @media (min-width: 768px) {
+      .burger { display: none; }
+      .menu   { display: flex; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="burger">☰</button>
+    <div class="menu">
+      <a href="#">Salles</a>
+      <a href="#">Réserver</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+  <p id="largeur"></p>
+  <script>
+    // Affiche la largeur de la fenêtre en bas à droite, pour vos essais
+    function montrer() { document.querySelector("#largeur").textContent = window.innerWidth + " px"; }
+    window.addEventListener("resize", montrer); montrer();
+  </script>
+</body>
+</html>

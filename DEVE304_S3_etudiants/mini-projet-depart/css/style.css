@@ -1,0 +1,25 @@
+/* =========================================================
+   Mini-projet évalué · TechDay 2026
+   Noms du binôme : ...............................
+   Règles : CSS écrit à la main (pas de Bootstrap), MOBILE FIRST.
+   Ne modifiez pas index.html (sauf pour un bonus, à signaler).
+   ========================================================= */
+
+/* 1. Base (téléphone) : police, couleurs, images fluides, texte en rem */
+
+/* 2. En-tête + menu : ☰ au téléphone (classe .ouvert ajoutée par menu.js),
+      menu en ligne dès 768 px */
+
+/* 3. Hero : image pleine largeur, titre lisible (clamp) */
+
+/* 4. Programme : 1 carte au téléphone, 2 dès 768 px, 3 dès 1024 px */
+
+/* 5. Vidéo : toujours en 16/9, jamais plus large que l'écran */
+
+/* 6. Formulaire : champs empilés, puis 2 par ligne dès 768 px */
+
+/* 7. Au moins UNE préférence : mode sombre OU animations réduites */
+
+/* 8. Téléphone en paysage : l'en-tête ne cache pas l'écran */
+
+/* Bonus : version impression, boutons plus gros au doigt, @supports… */

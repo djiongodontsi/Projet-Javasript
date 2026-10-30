@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La bonne image pour chaque écran</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 16px; background: #F7F5EF; color: #1F2A44; }
+    #largeur { position: fixed; right: 8px; bottom: 8px; background: #1F2A44; color: #fff;
+               padding: 4px 10px; border-radius: 6px; font: 14px monospace; margin: 0; }
+    /* ----- le code de la diapo ----- */
+    img { max-width: 100%; height: auto; display: block; }
+    @media (min-width: 1024px) { img { width: 33%; } }
+  </style>
+</head>
+<body>
+  <h1>Salle Turing</h1>
+  <img src="img/salle-800.jpg"
+       srcset="img/salle-800.jpg 800w,
+               img/salle-1600.jpg 1600w"
+       sizes="(min-width: 1024px) 33vw, 100vw"
+       alt="La salle Turing">
+  <p id="largeur"></p>
+  <script>
+    // Affiche la largeur de la fenêtre en bas à droite, pour vos essais
+    function montrer() { document.querySelector("#largeur").textContent = window.innerWidth + " px"; }
+    window.addEventListener("resize", montrer); montrer();
+  </script>
+</body>
+</html>
