@@ -1,15 +1,112 @@
 /* =========================================================
    Mini-projet évalué · TechDay 2026
-   Noms du binôme : ...............................
+   Noms du binôme : .......DJIONGO DJIONGO DANY BREL........................
    Règles : CSS écrit à la main (pas de Bootstrap), MOBILE FIRST.
    Ne modifiez pas index.html (sauf pour un bonus, à signaler).
    ========================================================= */
 
 /* 1. Base (téléphone) : police, couleurs, images fluides, texte en rem */
+/*  1. BASE — mobile first
+    1.1. Police : Arial, sans-serif
+    1.2. Couleurs : fond #F7F5EF, texte #1F2A44
+    1.3. Images fluides : max-width: 100%, height: auto, object-fit: cover
+    1.4. Texte en rem (exemple : font-size: 1rem = 16px)
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;          /* paddings/borders inclus dans la largeur */
+}
 
+html {
+  font-size: 100%;                 /* 16px par défaut → base des rem */
+}
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #F7F5EF;
+  color: #1F2A44;
+  font-size: 1rem;                 /* 16px */
+  line-height: 1.5;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;  /* supprime l'espace blanc sous les images */
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+section {
+  padding: 24px 16px;
+} /* ici on a fini avec la première partie ou on devait faire la base du site pour le téléphone tout en modifiant la police , le background , la hauteur et l'apparance des images */
 /* 2. En-tête + menu : ☰ au téléphone (classe .ouvert ajoutée par menu.js),
       menu en ligne dès 768 px */
+.entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  background: #1F2A44;
+  color: #F7F5EF; }
+.burger {
+  background: none;
+  border: none;
+  color: #F7F5EF;
+  font-size: 1.75rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  padding-top: 12px;
+}
 
+.menu a {
+  color: #F7F5EF;
+  text-decoration: none;
+  padding: 8px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Quand menu.js ajoute .ouvert → menu visible */
+.menu.ouvert {
+  display: flex;
+}
+
+/* ---------- ≥ 768px : menu en ligne, burger caché ---------- */
+@media (min-width: 768px) {
+  .burger { display: none; }
+
+  .menu {
+    display: flex !important;   /* toujours visible */
+    flex-direction: row;
+    width: auto;
+    gap: 24px;
+    padding-top: 0;
+  }
+
+  .menu a {
+    border-bottom: none;
+    padding: 0;
+  } /* caché par défaut sur mobile. On le montre seulement quand menu.js ajoute .ouvert.
+     Sur tablette et plus large, on l'affiche toujours (display: flex !important) et on le met en ligne. */
+}
 /* 3. Hero : image pleine largeur, titre lisible (clamp) */
 
 /* 4. Programme : 1 carte au téléphone, 2 dès 768 px, 3 dès 1024 px */
