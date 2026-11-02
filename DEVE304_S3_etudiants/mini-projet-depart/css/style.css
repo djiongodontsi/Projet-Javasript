@@ -108,15 +108,322 @@ section {
      Sur tablette et plus large, on l'affiche toujours (display: flex !important) et on le met en ligne. */
 }
 /* 3. Hero : image pleine largeur, titre lisible (clamp) */
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding: 0;
+}
 
+.hero img {
+  width: 100%;
+  height: 60vh;             /* hauteur relative à l'écran */
+  object-fit: cover;        /* remplit sans déformer */
+}
+
+.hero-texte {
+  position: absolute;
+  inset: 0;                 /* top/right/bottom/left = 0 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 16px;
+  background: rgba(31, 42, 68, 0.55);  /* voile sombre pour lisibilité */
+  color: #F7F5EF;
+}
+
+.hero-texte h1 {
+  font-size: clamp(1.75rem, 6vw, 3.5rem);  /* titre fluide */
+  margin: 0 0 0.5em;
+}
+
+.hero-texte p {
+  max-width: 60ch;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin: 0 0 1em;
+}
+
+/* Bouton générique (utilisé aussi dans le formulaire) */
+.bouton {
+  display: inline-block;
+  background: #F2B705;
+  color: #1F2A44;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
 /* 4. Programme : 1 carte au téléphone, 2 dès 768 px, 3 dès 1024 px */
+/* ---------- Programme : grille de cartes ---------- */
+.cartes {
+  display: grid;
+  grid-template-columns: 1fr;        /* mobile : 1 carte par ligne */
+  gap: 16px;
+}
+
+.carte {
+  background: #fff;
+  border: 1px solid #e3ddd2;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 12px;
+}
+
+.carte img {
+  width: 100%;
+  height: 160px;                     /* hauteur fixe → cartes alignées */
+  object-fit: cover;
+  border-radius: 0;                  /* coins gérés par overflow:hidden */
+}
+
+.carte h3,
+.carte p {
+  margin: 0;
+  padding: 6px 12px;
+}
+
+.carte .horaire {
+  font-weight: bold;
+  color: #B35A00;
+}
+
+/* ---------- ≥ 768px : 2 cartes ---------- */
+@media (min-width: 768px) {
+  .cartes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ---------- ≥ 1024px : 3 cartes ---------- */
+@media (min-width: 1024px) {
+  .cartes {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
 
 /* 5. Vidéo : toujours en 16/9, jamais plus large que l'écran */
+/* ---------- Vidéo 16/9 fluide ---------- */
+.video {
+  max-width: 100%;
+  margin: 0 auto;
+}
 
+.video video {
+  width: 100%;
+  aspect-ratio: 16 / 9;     /* ratio moderne */
+  height: auto;
+  border-radius: 10px;
+  background: #000;
+  object-fit: cover;
+  display: block;
+}
+
+/* Fallback pour très vieux navigateurs (facultatif) */
+@supports not (aspect-ratio: 16 / 9) {
+  .video {
+    position: relative;
+    padding-top: 56.25%;     /* 9/16 = 56.25% */
+  }
+  .video video {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+  }
+}
 /* 6. Formulaire : champs empilés, puis 2 par ligne dès 768 px */
+/* ---------- Formulaire (mobile) ---------- */
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
 
+.formulaire label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: bold;
+}
+
+.formulaire input,
+.formulaire select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: inherit;
+}
+
+.formulaire input:focus,
+.formulaire select:focus {
+  outline: 2px solid #F2B705;
+  outline-offset: 1px;
+}
+
+/* ---------- ≥ 768px : 2 champs par ligne ---------- */
+@media (min-width: 768px) {
+  .formulaire {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: end;
+  }
+
+  .formulaire .bouton {
+    grid-column: 1 / -1;      /* le bouton prend toute la largeur */
+    justify-self: start;      /* …mais reste aligné à gauche */
+  }
+}  
 /* 7. Au moins UNE préférence : mode sombre OU animations réduites */
+/* 
+   7a. Mode sombre
+ */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1F2A44;
+    color: #F7F5EF;
+  }
 
+  .entete {
+    background: #16203A;
+  }
+
+  .carte {
+    background: #26324F;
+    border-color: #3A4A6B;
+  }
+
+  .carte .horaire {
+    color: #F2B705;
+  }
+
+  .formulaire input,
+  .formulaire select {
+    background: #26324F;
+    color: #F7F5EF;
+    border-color: #3A4A6B;
+  }
+
+  .bouton {
+    background: #F2B705;
+    color: #1F2A44;
+  }
+
+  footer {
+    background: #16203A;
+    color: #F7F5EF;
+  }
+}
+
+/* 
+   7b. Animations réduites
+   */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 /* 8. Téléphone en paysage : l'en-tête ne cache pas l'écran */
+@media (orientation: landscape) and (max-height: 500px) and (pointer: coarse) {
+  .entete {
+    position: static;         /* ne colle plus */
+    height: auto;
+    padding: 8px 12px;
+  }
 
+  .logo {
+    font-size: 1rem;
+  }
+
+  .hero img {
+    height: 80vh;             /* en paysage, on peut agrandir le hero */
+  }
+
+  .menu {
+    gap: 12px;
+  }
+}
 /* Bonus : version impression, boutons plus gros au doigt, @supports… */
+/* 
+   Bonus A. Impression
+  */
+@media print {
+  .entete,
+  .burger,
+  .menu,
+  .bouton,
+  .video,
+  script {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 12pt;
+  }
+
+  .carte {
+    border: none !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    break-inside: avoid;
+  }
+
+  .cartes {
+    grid-template-columns: 1fr 1fr;
+    gap: 8pt;
+  }
+
+  .hero img {
+    height: auto;
+    max-height: 120pt;
+  }
+}
+
+/* 
+   Bonus B. Boutons plus gros au doigt
+   */
+@media (hover: none) and (pointer: coarse) {
+  .bouton {
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    min-height: 48px;
+  }
+
+  .burger {
+    font-size: 2rem;
+    padding: 8px 12px;
+  }
+}
+
+/*
+   Bonus C. @supports : améliorations si navigateur moderne
+ */
+@supports (display: grid) {
+  /* déjà utilisé, mais on peut renforcer */
+  .cartes { align-items: stretch; }
+}
+
+@supports (backdrop-filter: blur(4px)) {
+  .hero-texte {
+    background: rgba(31, 42, 68, 0.35);
+    backdrop-filter: blur(4px);
+  }
+}
